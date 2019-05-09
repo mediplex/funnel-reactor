@@ -18,18 +18,18 @@ const Ditto = props => {
       );
 
       //   // Layout Elements
-      //   const Hero = React.lazy(() =>
-      //     import("./elements/layout-elements/hero")
-      //   );
-      //   const Section = React.lazy(() =>
-      //     import("./elements/layout-elements/section")
-      //   );
-      //   const Columns = React.lazy(() =>
-      //     import("./elements/layout-elements/columns")
-      //   );
-      //   const Column = React.lazy(() =>
-      //     import("./elements/layout-elements/column")
-      //   );
+        const Hero = React.lazy(() =>
+          import("./elements/layout-elements/hero")
+        );
+        const Section = React.lazy(() =>
+          import("./elements/layout-elements/section")
+        );
+        const Columns = React.lazy(() =>
+          import("./elements/layout-elements/columns")
+        );
+        const Column = React.lazy(() =>
+          import("./elements/layout-elements/column")
+        );
       //   // Media Element
       //   const Image = React.lazy(() =>
       //     import("./elements/media-elements/image")
@@ -54,14 +54,14 @@ const Ditto = props => {
         case "footer":
           return <Footer key={id} data={data} />;
         // Layout Elements
-        // case "hero":
-        //   return <Hero key={id} data={data} />;
-        // case "section":
-        //   return <Section key={id} data={data} />;
-        // case "columns":
-        //   return <Columns key={id} data={data} />;
-        // case "column":
-        //   return <Column key={id} data={data} />;
+        case "hero":
+          return <Hero key={id} data={data} />;
+        case "section":
+          return <Section key={id} data={data} />;
+        case "columns":
+          return <Columns key={id} data={data} />;
+        case "column":
+          return <Column key={id} data={data} />;
 
         // // Media Elements
         // case "image":

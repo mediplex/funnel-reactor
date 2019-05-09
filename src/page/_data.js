@@ -7,7 +7,7 @@ const columns = {
         name: "column",
         id: "column-0102735752",
         data: {
-          size: { xs: "12", sm: "12", md: "6", lg: "6", xl: "6" },
+          size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
           content: [
             {
               name: "image",
@@ -21,7 +21,7 @@ const columns = {
         name: "column",
         id: "column-9804782536",
         data: {
-          size: { xs: "12", sm: "12", md: "6", lg: "6", xl: "6" },
+          size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
           content: [
             {
               name: "paragraph",
@@ -45,10 +45,6 @@ const section1 = {
   id: "id-section-1",
   name: "section",
   data: {
-    size: "",
-    backgroundImage: "",
-    backgroundColor: "",
-    foregroundColor: "",
     content: [sectionHeadline, columns]
   }
 };
@@ -56,10 +52,6 @@ const section2 = {
   id: "id-section-1296870721",
   name: "section",
   data: {
-    size: "",
-    backgroundImage: "",
-    backgroundColor: "#efefef",
-    foregroundColor: "",
     content: [sectionHeadline, columns]
   }
 };
@@ -69,10 +61,12 @@ const hero1 = {
   name: "hero",
   data: {
     size: "three-quarter-height",
-    backgroundImage:
-      "http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg",
-    backgroundColor: "#ccc",
-    foregroundColor: "#fff"
+    customStyle: {
+      backgroundImage:
+        "url(http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg)",
+      backgroundColor: "#ccc",
+      color: "#fff"
+    }
   }
 };
 
@@ -82,15 +76,17 @@ const heroForm = {
   data: {
     content: {},
     size: "three-quarter-height",
-    backgroundImage:
-      "http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg",
-    backgroundColor: "#ccc",
-    foregroundColor: "#fff"
+    customStyle: {
+      backgroundImage:
+        "url('http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg')",
+      backgroundColor: "#ccc",
+      color: "#fff"
+    }
   }
 };
 
 const page1 = {
-  id: 'page-1',
+  id: "page-1",
   data: {
     content: [
       {
