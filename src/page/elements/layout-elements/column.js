@@ -9,15 +9,7 @@ const styles = theme => ({});
 
 const Column = props => {
   return (
-    <Grid
-      item
-      xs={props.data.size.xs}
-      sm={props.data.size.sm}
-      md={props.data.size.md}
-      lg={props.data.size.lg}
-      xl={props.data.size.xl}
-      style={{ ...props.data.customStyle }}
-    >
+    <Grid item {...props.data.size} style={{ ...props.data.customStyle }}>
       <Ditto data={props.data.content} />
     </Grid>
   );

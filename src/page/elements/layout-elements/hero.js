@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import Ditto from "../../ditto";
 
 const styles = theme => ({
   root: {
@@ -61,22 +61,10 @@ const Hero = props => {
           container
           direction="column"
           justify="center"
-          alignItems="flex-start"
+          alignItems="flex-start" 
         >
           <Grid item size={12}>
-            <Typography
-              component="h1"
-              variant="h2"
-              color="inherit"
-              gutterBottom
-            >
-              How to cash out your bitcoin in three steps?
-            </Typography>
-            <Typography component="p" color="inherit" paragraph>
-              Multiple lines of text that form the lede, informing new readers
-              quickly and efficiently about what&apos;s most interesting in this
-              post&apos;s contents…
-            </Typography>
+            <Ditto data={props.data.content}/>
             <Button size="large" variant="contained" color="secondary">
               Call To Action
             </Button>
