@@ -51,7 +51,7 @@ const sectionParagraph = {
   }
 };
 
-const columns = {
+const imageColumns = {
   name: "columns",
   id: "columns-2116385188",
   data: {
@@ -65,7 +65,18 @@ const columns = {
             {
               name: "image",
               id: "image-7531427457",
-              data: {}
+              data: {
+                customStyle: {
+                  margin: "auto",
+                  maxWidth: "256px",
+                  borderRadius: "290486px"
+                },
+                props: {
+                  src:
+                    "https://itpeoplecorp.com/wp-content/uploads/2017/03/Building.png",
+                  alt: "building image"
+                }
+              }
             }
           ]
         }
@@ -82,15 +93,52 @@ const columns = {
   }
 };
 
-const section1 = {
-  id: "id-section-1",
-  name: "section",
+const videoColumns = {
+  name: "columns",
+  id: "columns-2116385188",
   data: {
-    content: [sectionHeadline, columns]
+    content: [
+      {
+        name: "column",
+        id: "column-0102735752",
+        data: {
+          size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
+          content: [
+            {
+              name: "youtube-video",
+              id: "video-7531427457",
+              data: {
+                customStyle: {
+                  // margin: "auto",
+                  padding: "1rem"
+                },
+                props: {}
+              }
+            }
+          ]
+        }
+      },
+      {
+        name: "column",
+        id: "column-9804782536",
+        data: {
+          size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
+          content: [sectionParagraph]
+        }
+      }
+    ]
   }
 };
 
-const section2 = {
+const imageSection = {
+  id: "id-section-1",
+  name: "section",
+  data: {
+    content: [sectionHeadline, imageColumns]
+  }
+};
+
+const paragraphSection = {
   id: "id-section-2",
   name: "section",
   data: {
@@ -105,11 +153,11 @@ const section2 = {
   }
 };
 
-const section3 = {
+const videoSection = {
   id: "id-section-3",
   name: "section",
   data: {
-    content: [sectionHeadline, columns]
+    content: [sectionHeadline, videoColumns]
   }
 };
 
@@ -142,7 +190,7 @@ const page1 = {
         name: "main",
         id: "main-2879954606",
         data: {
-          content: [section1, section2, section3]
+          content: [imageSection, paragraphSection, videoSection]
         }
       },
       {
