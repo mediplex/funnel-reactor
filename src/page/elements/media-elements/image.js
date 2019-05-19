@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-// import "./image.css";
 
 const styles = () => ({
   figure: {
@@ -17,6 +16,10 @@ const styles = () => ({
   }
 });
 
+// const ThisWillWork = forwardRef((props, ref) => {
+//   return <button ref={ref}>Text</button>;
+// });
+
 const Image = props => {
   const { classes } = props;
   // figure + caption + size
@@ -24,7 +27,7 @@ const Image = props => {
   return (
     <figure className={classes.figure} style={{ ...props.data.customStyle }}>
       {/* eslint-disable-next-line */}
-      <img className={classes.img} {...props.data.props} />
+      <img   className={classes.img} {...props.data.props} />
     </figure>
   );
 };

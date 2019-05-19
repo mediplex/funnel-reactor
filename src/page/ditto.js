@@ -4,7 +4,16 @@ import NotFound from "./not-found";
 
 const Ditto = props => {
   const getComponents = () => {
-    let getComponentByName = (id, name, data) => {
+    let getComponentByName = (/*id,*/ name, data) => {
+      //! temporary code to replace the id provided in the params
+      const id =
+        Math.random()
+          .toString(36)
+          .substring(2, 15) +
+        Math.random()
+          .toString(36)
+          .substring(2, 15);
+
       // Base Elements
       const Header = React.lazy(() =>
         import("./elements/base-elements/header")
@@ -28,7 +37,15 @@ const Ditto = props => {
 
       // Media Element
       const Image = React.lazy(() => import("./elements/media-elements/image"));
-      const YoutubeVideo = React.lazy(() => import("./elements/media-elements/youtube-video"));
+      const ImagePopup = React.lazy(() =>
+        import("./elements/media-elements/image-popup")
+      );
+      const YoutubeVideo = React.lazy(() =>
+        import("./elements/media-elements/youtube-video")
+      );
+      const YoutubeVideoPopup = React.lazy(() =>
+        import("./elements/media-elements/youtube-video-popup")
+      );
 
       // Text Element
       const Text = React.lazy(() => import("./elements/text-elements/text"));
@@ -62,8 +79,12 @@ const Ditto = props => {
         // Media Elements
         case "image":
           return <Image key={id} data={data} />;
+        case "image-popup":
+          return <ImagePopup key={id} data={data} />;
         case "youtube-video":
           return <YoutubeVideo key={id} data={data} />;
+        case "youtube-video-popup":
+          return <YoutubeVideoPopup key={id} data={data} />;
 
         default:
           return <NotFound key={id} />; // ! need a random key!
@@ -72,7 +93,7 @@ const Ditto = props => {
 
     if (props.data && props.data.length)
       return props.data.map(component =>
-        getComponentByName(component.id, component.name, component.data)
+        getComponentByName(/*component.id,*/ component.name, component.data)
       );
     // else return <React.Fragment />;
   };

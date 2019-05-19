@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Image from "./image";
+import YoutubeVideo from "./youtube-video";
 import Modal from "@material-ui/core/Modal";
 import Fab from "@material-ui/core/Fab";
 import Close from "@material-ui/icons/Close";
-import ZoomIn from "@material-ui/icons/ZoomIn";
-
+import PlayArrow from "@material-ui/icons/PlayArrow";
 const styles = () => ({
   root: {
     position: "relative",
     // width: "50%",
     transition: ".2s ease",
-    "&:hover": { transform: "scale(1.1)", zIndex: "2" }
+    "&:hover": { transform: "scale(1.2)", zIndex: "2" }
   },
   overlay: {
     position: "absolute",
@@ -25,7 +25,7 @@ const styles = () => ({
     opacity: "0",
     transition: ".5s ease",
     backgroundColor: "#000000aa",
-    "&:hover": { opacity: "1" },
+    "&:hover": { opacity: "1" }, // the icon should be always opacity = 1
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -43,7 +43,7 @@ const styles = () => ({
   }
 });
 
-const ImagePopup = props => {
+const YoutubeVideoPopup = props => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -61,12 +61,22 @@ const ImagePopup = props => {
       <div className={classes.root} style={{ ...props.data.customStyle }}>
         <Image data={props.data.thumbnail.data} />
         <div className={classes.overlay} onClick={handleOpen}>
-          <ZoomIn />
+          <PlayArrow />
         </div>
       </div>
       <Modal open={open} onClose={handleClose} className={classes.modal}>
         <React.Fragment>
-          <Image data={props.data.image.data} />
+          <YoutubeVideo data={props.data.youtubeVideo.data} />
+
+          {/* <iframe
+            title="video"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/uQYgEPXFWNo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          /> */}
           <Fab size="small" className={classes.modalClose}>
             <Close onClick={handleClose} />
           </Fab>
@@ -76,8 +86,8 @@ const ImagePopup = props => {
   );
 };
 
-ImagePopup.propTypes = {
+YoutubeVideoPopup.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ImagePopup);
+export default withStyles(styles)(YoutubeVideoPopup);

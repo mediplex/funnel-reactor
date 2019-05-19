@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Ditto from "./ditto";
-import data from "./_data";
+import data from "./data";
 
 const Page = () => {
     const [page, setPage] = useState(null);
