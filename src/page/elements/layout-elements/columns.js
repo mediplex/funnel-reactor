@@ -22,17 +22,17 @@ const styles = theme => ({
   }
 });
 
-const Columns = (props) => {
-    const { classes } = props;
-    return (
-      <div className={classes.root} style={{...props.data.customStyle}}>
-        <Grid container>
-          <Ditto data={props.data.content} />
-        </Grid>
-      </div>
-    );
-
-}
+const Columns = props => {
+  const { classes } = props;
+  return (
+    // no need for a div... the grid can be used as a root
+    <div className={classes.root} style={{ ...props.data.customStyle }}>
+      <Grid container>
+        <Ditto data={props.data.content} />
+      </Grid>
+    </div>
+  );
+};
 
 Columns.propTypes = {
   classes: PropTypes.object.isRequired
