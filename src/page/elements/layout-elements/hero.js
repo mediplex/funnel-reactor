@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Ditto from "../../ditto";
@@ -65,9 +64,6 @@ const Hero = props => {
         >
           <Grid item size={12}>
             <Ditto data={props.data.content}/>
-            <Button size="large" variant="contained" color="secondary">
-              Call To Action
-            </Button>
           </Grid>
         </Grid>
       </Container>
