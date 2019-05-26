@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
 
-const Text = props => {
+const TextInput = props => {
   return (
     <TextField
       helperText={props.form.touched[props.name] ? props.form.errors[props.name] : ""}
@@ -14,4 +14,4 @@ const Text = props => {
   );
 };
 
-export default Text;
+export default TextInput;

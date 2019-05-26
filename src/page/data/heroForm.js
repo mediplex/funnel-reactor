@@ -8,7 +8,7 @@ const heroHeadline = {
     customStyle: {
       //   color: "#ffffff"
     },
-    content: `How to cash out your <span style="color:#ffc107">฿itcoin</span> in three steps?`
+    content: `Do you know that you can obtain you <strong style="color:red">MBA</strong> by the next in Turkey?`
   }
 };
 
@@ -17,24 +17,48 @@ const form = {
   data: {
     content: [
       {
-        type: "text",
+        inputType: "text-input",
         name: "Email",
         label: "Email Address",
         placeholder: "Your best email",
+        multiline: false,
         validation: {
-          type: "string",
-          email: { customMessage: "email non valid" },
-          required: { customMessage: "this field is required" }
+          required: {},
+          email: { errorMessage: "invalid email" },
+          matches: {
+            // eslint-disable-next-line
+            regex: /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+            // errorMessage: "invalid Email"
+          }
         }
       },
       {
-        type: "text",
-        name: "Name",
-        label: "First Name",
-        placeholder: "http://example.com",
+        inputType: "text-input",
+        name: "Age",
+        label: "Your Age",
+        placeholder: "Example: 23",
+        multiline: true
+      },
+      {
+        inputType: "select-input",
+        name: "Day",
+        label: "Select Label",
         validation: {
-          type: "string",
-          required: { customMessage: "champ obligatoir" },
+          required: {}
+        },
+        options: [
+          { values: ["x", "y", "z"] },
+          { group: "Alphabet", values: ["A", "B", "C"] },
+          { group: "Numbers", values: ["1", "2", "3"] }
+        ]
+      },
+      {
+        inputType: "checkbox-input",
+        name: "Accept",
+        label: "Accept terms and conditions",
+        defaultValue: true,
+        validation: {
+          required: {}
         }
       }
     ]

@@ -1,28 +1,51 @@
-import * as Yup from "yup";
+import { object, string, bool } from "yup";
 
 const useValidation = content => {
   const schema = {};
-  content.forEach(el => {
-    let y;
-    switch (el.validation.type) {
-      case "string":
-        y = Yup.string();
-        if (el.validation.email) y = y.email(el.validation.email.customMessage);
-        if (el.validation.required)
-          y = y.required(el.validation.required.customMessage);
-        if (el.validation.min)
-          y = y.min(el.validation.min.value, el.validation.min.customMessage);
-        if (el.validation.max)
-          y = y.max(el.validation.max.value, el.validation.max.customMessage);
-        break;
-      default:
-        console.log("no validation found");
-    }
 
-    schema[el.name] = y;
-  });
+  // Text Input Validation
+  content
+    .filter(el => el.inputType === "text-input" && el.validation)
+    .forEach(el => {
+      let y = string();
 
-  return Yup.object().shape(schema);
+      if (el.validation.required)
+        y = y.required(el.validation.required.errorMessage);
+
+      if (el.validation.matches)
+        y = y.matches(
+          el.validation.matches.regex,
+          el.validation.required.errorMessage
+        );
+
+      schema[el.name] = y;
+    });
+  
+  // Select Validation
+  content
+    .filter(el => el.inputType === "select-input" && el.validation)
+    .forEach(el => {
+      let y = string();
+
+      if (el.validation.required)
+        y = y.required(el.validation.required.errorMessage);
+
+      schema[el.name] = y;
+    });
+
+  // Checkbox Validation
+  content
+    .filter(el => el.inputType === "checkbox-input" && el.validation)
+    .forEach(el => {
+      let y = bool();
+
+      if (el.validation.required)
+        y = y.oneOf([true], el.validation.required.errorMessage);
+
+      schema[el.name] = y;
+    });
+
+  return object().shape(schema);
 };
 
 export default useValidation;
