@@ -6,7 +6,7 @@ const Page = () => {
     const [page, setPage] = useState(null);
   useEffect((() => {
       // ! the id is coming from the router... the effect maybe coming from redux!
-      setPage(data.pages.find(page => (page.id = 'page-1')));
+      setPage(data.pages[0]);
     }),[]);
 
     return <Ditto data={page? page.data.content : null} />;
