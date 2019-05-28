@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import useValidation from "./use-validation";
 
@@ -10,6 +10,9 @@ import { Button } from "@material-ui/core";
 
 import { Formik, Form, Field } from "formik";
 import useInitialValues from "./use-initial-values";
+
+import {Redirect} from 'react-router-dom'
+
 
 const DynamicInput = props => {
   const inputType = props.inputType;
@@ -31,15 +34,24 @@ const DynamicInput = props => {
 };
 
 const BasicForm = props => {
+  const [formSubmited, setFormSubmited] = useState(false) 
+
   const basicFormSchema = useValidation(props.data.content);
   const initialValues = useInitialValues(props.data.content);
 
   //TODO: trim strings
   //TODO: lowercase Emails
   //TODO: useEffect
-  const handleSubmit = values => console.log(JSON.stringify(values, null, 2));
+  const handleSubmit = values => {
+    console.log(JSON.stringify(values, null, 2));
+    setFormSubmited(true)
+  }
 
-  return (
+  const Render = () => {
+if (formSubmited)
+    return <Redirect to={`/page/${props.data.redirectTo}`}/>
+  else
+    return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
@@ -75,7 +87,10 @@ const BasicForm = props => {
         </Form>
       )}
     />
-  );
+  )
+  }
+
+  return <Render/>
 };
 
 export default BasicForm;

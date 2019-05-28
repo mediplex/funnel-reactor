@@ -50,7 +50,7 @@ const section = {
 };
 
 export const page = {
-  id: "campus-turkey-thank-you",
+  id: "2",
   data: {
     content: [section]
   }

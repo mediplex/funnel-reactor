@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import Ditto from "./ditto";
 import data from "./data";
 
-const Page = () => {
-    const [page, setPage] = useState(null);
-  useEffect((() => {
-      // ! the id is coming from the router... the effect maybe coming from redux!
-      setPage(data.pages[0]);
-    }),[]);
+const Page = props => {
+  const [page, setPage] = useState(null);
+  useEffect(() => {
+    const pageId = props.match.params.id;
+    setPage(data.pages.find((page)=> page.id === pageId ));
+  }, [props]);
 
-    return <Ditto data={page? page.data.content : null} />;
+  return <Ditto data={page ? page.data.content : null} />;
 };
 
 export default Page;

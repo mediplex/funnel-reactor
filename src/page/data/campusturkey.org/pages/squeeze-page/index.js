@@ -6,7 +6,8 @@ const headline = {
       component: "h1"
     },
     customStyle: {},
-    content: `Do you know that you can obtain you <strong style="color:red">MBA</strong> by the next in Turkey?`
+    content: `
+      Your <strong>Licence Pro</strong> is now accepted at our University in <strong style="color:red">Turkey</strong>, request more information now!`
   }
 };
 
@@ -51,6 +52,7 @@ const image = {
 const form = {
   name: "basic-form",
   data: {
+    redirectTo:'2',
     content: [
       {
         inputType: "text-input",
@@ -198,7 +200,7 @@ const section = {
 };
 
 export const page = {
-  id: "campus-turkey-landing",
+  id: "1",
   data: {
     content: [section]
   }
