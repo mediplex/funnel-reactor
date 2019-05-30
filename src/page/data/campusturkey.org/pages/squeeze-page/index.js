@@ -52,7 +52,7 @@ const image = {
 const form = {
   name: "basic-form",
   data: {
-    redirectTo:'2',
+    redirectTo: "thank-you-for-your-request",
     content: [
       {
         inputType: "text-input",
@@ -200,7 +200,8 @@ const section = {
 };
 
 export const page = {
-  id: "1",
+  id: "your-master-degree",
+  tile: "Your Master Degree",
   data: {
     content: [section]
   }

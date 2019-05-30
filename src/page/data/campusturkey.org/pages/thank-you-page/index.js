@@ -6,7 +6,7 @@ const headline = {
       component: "h1"
     },
     customStyle: {},
-    content: `Do you know that you can obtain you <strong style="color:red">MBA</strong> by the next in Turkey?`
+    content: `Get ready to receive a call from your campus turkey advisor`
   }
 };
 
@@ -19,9 +19,9 @@ const paragraph = {
     },
     content: `
         <ul>
-            <li>Element 1</li>
-            <li>Element 2</li>
-            <li>Element 3</li>
+            <li>confirm your email</li>
+            <li>like our facebook page</li>
+            <li>join our facebook group??</li>
         </ul> 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -50,7 +50,8 @@ const section = {
 };
 
 export const page = {
-  id: "2",
+  id: "thank-you-for-your-request",
+  title: "Thank For You Request",
   data: {
     content: [section]
   }
