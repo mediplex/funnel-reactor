@@ -31,7 +31,6 @@ const styles = () => ({
 
 const YoutubeVideo = props => {
   const { classes } = props;
-  console.log(props.data);
   return (
     <div className={classes.root}>
       <iframe

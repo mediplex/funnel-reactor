@@ -1,7 +1,7 @@
-import page  from './page'
+import campusTurkeyData  from './campusturkey.org'
 
-const data = {
-  pages: [page]
-};
+let data = {}
+
+data = {...data, ...campusTurkeyData };
 
 export default data;
