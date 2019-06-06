@@ -1,37 +1,40 @@
 const heroHeadline = {
-  name: "text",
+  name: 'text',
   data: {
     props: {
-      variant: "h1"
+      variant: 'h1'
     },
     customStyle: {
-      color: "#ffffff"
+      color: '#ffffff'
     },
     content: `How to <del>cash</del> out your <span style="color:#ffc107">฿itcoin</span> in three steps?`
   }
 };
 
 const heroSubheadline = {
-  name: "text",
+  name: 'text',
   data: {
     props: {
-      variant: "subtitle2"
+      variant: 'subtitle2'
     },
     customStyle: {
-      color: "#ffffff"
+      color: '#ffffff'
     },
     content: `How to <del>cash</del> out your <span style="color:#ffc107">฿itcoin</span> in three steps?`
   }
 };
 
 const hero = {
-  name: "hero",
+  name: 'section',
   data: {
-    size: "three-quarter-height",
+    HtmlElement: 'header',
+    contentMaxWidth: 'lg',
     customStyle: {
+      justifyContent: 'center',
+      height: '100vh',
       backgroundImage:
-        "url(http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg)",
-      backgroundColor: "#ccc"
+        'url(http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg)',
+      backgroundColor: '#ccc'
     },
     content: [heroHeadline, heroSubheadline]
   }

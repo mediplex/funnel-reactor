@@ -24,7 +24,6 @@ const Ditto = props => {
       );
 
       // Layout Elements
-      const Hero = React.lazy(() => import("./elements/layout-elements/hero"));
       const Section = React.lazy(() =>
         import("./elements/layout-elements/section")
       );
@@ -66,8 +65,6 @@ const Ditto = props => {
           return <Footer key={id} data={data} />;
 
         // Layout Elements
-        case "hero":
-          return <Hero key={id} data={data} />;
         case "section":
           return <Section key={id} data={data} />;
         case "columns":

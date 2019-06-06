@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import { hostname } from "os";
+import { hostname } from 'os';
 
-//TODO: dynamic import
-import Page from "./page";
+// TODO: dynamic import
+import Page from './page';
 
-//TODO: from database
-import customRedirects from "./page/data/campusturkey.org/custom-redirects";
-import PageNotFound from "./page-not-found";
+// TODO: from database
+import customRedirects from './page/data/campusturkey.org/custom-redirects';
+import PageNotFound from './page-not-found';
 
 const appRoutes = [
   // will be used to edit the page
@@ -19,13 +19,13 @@ const appRoutes = [
   //   component: Page
   // },
   {
-    path: "/:id",
+    path: '/:id',
     strict: true,
     exact: true,
     component: Page
   },
   {
-    path: "/",
+    path: '/',
     strict: true,
     exact: true,
     component: Page
@@ -40,10 +40,9 @@ const Router = () => {
   const [redirects, setRedirects] = useState([]);
 
   useEffect(() => {
-    //TODO: request from the database customRoutes by hostName
+    // TODO: request from the database customRoutes by hostName
     setRedirects(
-      customRedirects.find(redirect => redirect.hostname === hostname())
-        .redirects
+      customRedirects.find(redirect => redirect.hostname === hostname()).redirects // TODO: if undefined redirect to page-not-found
     );
   }, []);
 

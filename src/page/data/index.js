@@ -1,7 +1,8 @@
-import campusTurkeyData  from './campusturkey.org'
+import campusTurkeyData from './campusturkey.org';
+import elementShowCaseData from './element-showcase';
 
-let data = {}
+const data = {};
 
-data = {...data, ...campusTurkeyData };
+data.pages = [...campusTurkeyData.pages, ...elementShowCaseData.pages]
 
 export default data;

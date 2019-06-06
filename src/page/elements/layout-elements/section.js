@@ -1,76 +1,43 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { Box, Container } from '@material-ui/core';
+import Ditto from '../../ditto';
 
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
-import Ditto from "../../ditto";
-
-const styles = theme => ({
+const useBoxConfig = () => ({
   root: {
-    backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center top",
-    backgroundSize: "cover",
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6)
-    },
-    [theme.breakpoints.up("md")]: {
-      paddingTop: theme.spacing(9),
-      paddingBottom: theme.spacing(9)
-    }
+    // my: { xs: 1, sm: 2, md: 4, lg: 6, xl: 6 },
+    py: { xs: 2, sm: 4, md: 8, lg: 12, xl: 12 },
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 
-const Section = (props) => {
-    const { classes } = props;
-
-      const contentHeight = () => {
-        const size = () => {
-          switch (props.data.size) {
-            case "full-height":
-              return "100vh";
-            case "half-height":
-              return "50vh";
-            case "one-quarter-height":
-              return "25vh";
-            case "two-quarter-height":
-              return "50vh";
-            case "three-quarter-height":
-              return "75vh";
-            case "one-third-height":
-              return "33vh";
-            case "two-third-height":
-              return "66vh";
-            default:
-              return null;
-          }
-        };
-        return {
-          minHeight: size()
-        };
-      };
-
-    return (
-      <section className={classes.root} style={{...props.data.customStyle}}>
-        <Container maxWidth="md">
-          <Grid
-            container
-            style={contentHeight()}
-            direction="column"
-            justify="center"
-            alignItems="flex-start"
-          >
-            <Ditto data={props.data.content} />
-          </Grid>
-        </Container>
-      </section>
-    );
+const useStyles = customStyle => {
+  let style = {
+    root: {
+      'box-sizing': 'border-box'
+    }
   };
 
-Section.propTypes = {
-  classes: PropTypes.object.isRequired
+  style.root = { ...style, ...customStyle };
+
+  return style;
 };
 
-export default withStyles(styles)(Section);
+const Section = props => {
+  const boxConfig = useBoxConfig();
+  const classes = useStyles(props.data.customStyle);
+
+  return (
+    <Box
+      component={props.data.HtmlElement ? props.data.HtmlElement : 'section'}
+      style={classes.root}
+      {...boxConfig.root}
+    >
+      <Container maxWidth={props.data.contentMaxWidth ? props.data.contentMaxWidth : 'md'}>
+        <Ditto data={props.data.content} />
+      </Container>
+    </Box>
+  );
+};
+
+export default Section;

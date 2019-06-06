@@ -6,19 +6,20 @@ import Grid from "@material-ui/core/Grid";
 import Ditto from "../../ditto";
 
 const styles = theme => ({
+  //TODO:
   root: {
-    backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center top",
-    backgroundSize: "cover",
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(0)
-    },
-    [theme.breakpoints.up("md")]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(0)
-    }
+    // backgroundRepeat: "no-repeat",
+    // backgroundAttachment: "fixed",
+    // backgroundPosition: "center top",
+    // backgroundSize: "cover",
+    // [theme.breakpoints.down("sm")]: {
+    //   paddingTop: theme.spacing(3),
+    //   paddingBottom: theme.spacing(0)
+    // },
+    // [theme.breakpoints.up("md")]: {
+    //   paddingTop: theme.spacing(6),
+    //   paddingBottom: theme.spacing(0)
+    // }
   }
 });
 

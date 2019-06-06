@@ -1,9 +1,9 @@
 const heroHeadline = {
-  name: "text",
+  name: 'text',
   data: {
     props: {
-      variant: "h2",
-      component: "h1"
+      variant: 'h2',
+      component: 'h1'
     },
     customStyle: {
       //   color: "#ffffff"
@@ -13,18 +13,18 @@ const heroHeadline = {
 };
 
 const form = {
-  name: "basic-form",
+  name: 'basic-form',
   data: {
     content: [
       {
-        inputType: "text-input",
-        name: "Email",
-        label: "Email Address",
-        placeholder: "Your best email",
+        inputType: 'text-input',
+        name: 'Email',
+        label: 'Email Address',
+        placeholder: 'Your best email',
         multiline: false,
         validation: {
           required: {},
-          email: { errorMessage: "invalid email" },
+          email: { errorMessage: 'invalid email' },
           matches: {
             // eslint-disable-next-line
             regex: /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
@@ -33,29 +33,29 @@ const form = {
         }
       },
       {
-        inputType: "text-input",
-        name: "Age",
-        label: "Your Age",
-        placeholder: "Example: 23",
+        inputType: 'text-input',
+        name: 'Age',
+        label: 'Your Age',
+        placeholder: 'Example: 23',
         multiline: true
       },
       {
-        inputType: "select-input",
-        name: "Day",
-        label: "Select Label",
+        inputType: 'select-input',
+        name: 'Day',
+        label: 'Select Label',
         validation: {
           required: {}
         },
         options: [
-          { values: ["x", "y", "z"] },
-          { group: "Alphabet", values: ["A", "B", "C"] },
-          { group: "Numbers", values: ["1", "2", "3"] }
+          { values: ['x', 'y', 'z'] },
+          { group: 'Alphabet', values: ['A', 'B', 'C'] },
+          { group: 'Numbers', values: ['1', '2', '3'] }
         ]
       },
       {
-        inputType: "checkbox-input",
-        name: "Accept",
-        label: "Accept terms and conditions",
+        inputType: 'checkbox-input',
+        name: 'Accept',
+        label: 'Accept terms and conditions',
         defaultValue: true,
         validation: {
           required: {}
@@ -66,18 +66,18 @@ const form = {
 };
 
 const formColumns = {
-  name: "columns",
+  name: 'columns',
   data: {
     content: [
       {
-        name: "column",
+        name: 'column',
         data: {
           size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
           content: [heroHeadline]
         }
       },
       {
-        name: "column",
+        name: 'column',
         data: {
           size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
           content: [form]
@@ -88,13 +88,16 @@ const formColumns = {
 };
 
 const heroForm = {
-  name: "hero",
+  name: 'section',
   data: {
-    size: "three-quarter-height",
+    HtmlElement: 'header',
+    contentMaxWidth: 'lg',
     customStyle: {
-      //   backgroundImage:
-      //     "url(http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg)",
-      //   backgroundColor: "#ccc"
+      justifyContent: 'center',
+      height: '100vh',
+      backgroundImage:
+        'url(http://www.avocoidentity.com/wp-content/uploads/2017/12/blockchain.jpg)',
+      backgroundColor: '#ccc'
     },
     content: [formColumns]
   }
