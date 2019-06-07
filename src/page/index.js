@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from "react";
-import Ditto from "./ditto";
-import data from "./data";
-import { hostname } from "os";
-import customRedirects from "./data/campusturkey.org/custom-redirects";
+import React, { useState, useEffect } from 'react';
+import { hostname } from 'os';
 
-const Page = props => {
+import Ditto from './ditto';
+import data from './data';
+import customRedirects from './data/campusturkey.org/custom-redirects';
+
+const Page = ({ match }) => {
   const [page, setPage] = useState(null);
+
   useEffect(() => {
-    let pageId = props.match.params.id;
+    let pageId = match.params.id;
 
     if (!pageId) {
       pageId = customRedirects
         .find(redirect => redirect.hostname === hostname())
-        .redirects.find(redirect => redirect.from === "/").to;
+        .redirects.find(redirect => redirect.from === '/').to;
     }
 
-    console.log(new Date())
+    // eslint-disable-next-line no-console
+    console.log(new Date());
+    // eslint-disable-next-line no-console
     console.log(pageId);
 
-    setPage(data.pages.find(page => page.id === pageId));
-  }, [props.match.params.id]);
+    setPage(data.pages.find(p => p.id === pageId));
+  }, [match.params.id]);
 
-  //TODO: page? renderPage : redirect NotFound
+  // TODO: page? renderPage : redirect NotFound
   return <Ditto data={page ? page.data.content : null} />;
 };
 
