@@ -1,9 +1,9 @@
 const headline = {
-  name: "text",
+  name: 'text',
   data: {
     props: {
-      variant: "h2",
-      component: "h1"
+      variant: 'h2',
+      component: 'h1'
     },
     customStyle: {},
     content: `
@@ -11,11 +11,24 @@ const headline = {
   }
 };
 
-const paragraph = {
-  name: "text",
+const subHeadline = {
+  name: 'text',
   data: {
     props: {
-      variant: "body2",
+      variant: 'h5',
+      component: 'h2',
+      gutterBottom : true
+    },
+    content: `Where do you want to receive the info you are looking for?`
+  }
+};
+
+
+const paragraph = {
+  name: 'text',
+  data: {
+    props: {
+      variant: 'body2',
       paragraph: true
     },
     content: `
@@ -34,35 +47,35 @@ const paragraph = {
 };
 
 const image = {
-  name: "image",
+  name: 'image',
   data: {
     customStyle: {
-      margin: "auto",
-      maxWidth: "256px",
-      borderRadius: "290486px"
+      margin: 'auto',
+      maxWidth: '256px',
+      borderRadius: '290486px'
     },
     props: {
       src:
-        "http://communities.lawsociety.org.uk/pictures/603xAny/7/1/6/7716_Turkey-flag.jpg",
-      alt: "building image"
+        'http://communities.lawsociety.org.uk/pictures/603xAny/7/1/6/7716_Turkey-flag.jpg',
+      alt: 'building image'
     }
   }
 };
 
 const form = {
-  name: "basic-form",
+  name: 'basic-form',
   data: {
-    redirectTo: "thank-you-for-your-request",
+    redirectTo: 'thank-you-for-your-request',
     content: [
       {
-        inputType: "text-input",
-        name: "Email",
-        label: "Email Address",
-        placeholder: "Your best email",
+        inputType: 'text-input',
+        name: 'Email',
+        label: 'Email Address',
+        placeholder: 'Your best email',
         multiline: false,
         validation: {
           required: {},
-          email: { errorMessage: "invalid email" },
+          email: { errorMessage: 'invalid email' },
           matches: {
             // eslint-disable-next-line
             regex: /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
@@ -71,99 +84,99 @@ const form = {
         }
       },
       {
-        inputType: "text-input",
-        name: "Name",
-        label: "What should we call you?",
-        placeholder: "Your Name",
+        inputType: 'text-input',
+        name: 'Name',
+        label: 'What should we call you?',
+        placeholder: 'Your Name',
         validation: { required: {} }
       },
       {
-        inputType: "text-input",
-        name: "WhatsApp",
-        label: "Where should we text you?",
-        placeholder: "06xxxxxxx",
+        inputType: 'text-input',
+        name: 'WhatsApp',
+        label: 'Where should we text you?',
+        placeholder: '06xxxxxxx',
         validation: { required: {} }
       },
       {
-        inputType: "select-input",
-        name: "Master Program",
-        label: "What Master Program Do You Want?",
+        inputType: 'select-input',
+        name: 'Master Program',
+        label: 'What Master Program Do You Want?',
         validation: {
           required: {}
         },
         options: [
           {
-            group: "Graduate School of Health Sciences",
+            group: 'Graduate School of Health Sciences',
             values: [
-              "Health Institutions Management (without Thesis) (Turkish)",
-              "Healthcare Quality and Patient Safety (with Thesis) (Turkish)",
-              "Healthcare Quality and Patient Safety (without Thesis) (Turkish)",
-              "Reproductive Biology (with Thesis) (Turkish)",
-              "Reproductive Biology (without Thesis) (Turkish)",
-              "Surgical Nursing(with Thesis) (Turkish)"
+              'Health Institutions Management (without Thesis) (Turkish)',
+              'Healthcare Quality and Patient Safety (with Thesis) (Turkish)',
+              'Healthcare Quality and Patient Safety (without Thesis) (Turkish)',
+              'Reproductive Biology (with Thesis) (Turkish)',
+              'Reproductive Biology (without Thesis) (Turkish)',
+              'Surgical Nursing(with Thesis) (Turkish)'
             ]
           },
 
           {
-            group: "Graduate School of Social Sciences",
+            group: 'Graduate School of Social Sciences',
             values: [
-              "Brand Communication (Without Thesis) (Turkish)",
-              "Experimental Psychology (With Thesis)",
-              "Financial Economics (With Thesis)",
-              "Financial Economics (Without Thesis)",
-              "Logistics Management (With Thesis)",
-              "Logistics Management (Without Thesis)",
-              "Media and Communication Studies (With Thesis)",
-              "Private Law Graduate Program (With Thesis)",
-              "Private Law Graduate Program (Without Thesis)",
-              "Marketing Communication and Public Relations(English)",
-              "Political Science and International Relations (With Thesis)",
-              "Political Science and International Relations (Without thesis)",
-              "Sustainable Energy (With Thesis)",
-              "Sustainable Energy (Without Thesis)",
-              "Design Studies (With Thesis)",
-              "Design Management (Without Thesis)",
-              "Yacht Design (Without Thesis)"
+              'Brand Communication (Without Thesis) (Turkish)',
+              'Experimental Psychology (With Thesis)',
+              'Financial Economics (With Thesis)',
+              'Financial Economics (Without Thesis)',
+              'Logistics Management (With Thesis)',
+              'Logistics Management (Without Thesis)',
+              'Media and Communication Studies (With Thesis)',
+              'Private Law Graduate Program (With Thesis)',
+              'Private Law Graduate Program (Without Thesis)',
+              'Marketing Communication and Public Relations(English)',
+              'Political Science and International Relations (With Thesis)',
+              'Political Science and International Relations (Without thesis)',
+              'Sustainable Energy (With Thesis)',
+              'Sustainable Energy (Without Thesis)',
+              'Design Studies (With Thesis)',
+              'Design Management (Without Thesis)',
+              'Yacht Design (Without Thesis)'
             ]
           },
 
           {
-            group: "Graduate School of Natural and Applied Sciences",
+            group: 'Graduate School of Natural and Applied Sciences',
             values: [
-              "M.SC. In Intelligent Engineering Systems (With Thesis)",
-              "M.SC. in Bioengineering (With Thesis) (Turkish)",
-              "M.SC. in Bioengineering (Without Thesis)",
-              "M.SC. in Computer Engineering (With Thesis)",
-              "M.SC. in Computer Engineering (Without Thesis)",
-              "M.SC. in Electrical and Electronics Engineering (With Thesis)",
-              "M.SC. in Electrical and Electronics Engineering (Without Thesis)",
-              "M.SC. In Industrial Engineering (With Thesis)",
-              "M.SC. In Financial Mathematics (Without Thesis)",
-              "M.SC. In Advanced Architectural Design (Without Thesis)",
-              "M.SC. In Architecture (With Thesis)",
-              "M.SC. In Applied Statistics (With Thesis)",
-              "M.SC. Occupational Health and Safety (With Thesis) (Turkish)",
-              "M.SC. Occupational Health and Safety (Without Thesis) (Turkish)"
+              'M.SC. In Intelligent Engineering Systems (With Thesis)',
+              'M.SC. in Bioengineering (With Thesis) (Turkish)',
+              'M.SC. in Bioengineering (Without Thesis)',
+              'M.SC. in Computer Engineering (With Thesis)',
+              'M.SC. in Computer Engineering (Without Thesis)',
+              'M.SC. in Electrical and Electronics Engineering (With Thesis)',
+              'M.SC. in Electrical and Electronics Engineering (Without Thesis)',
+              'M.SC. In Industrial Engineering (With Thesis)',
+              'M.SC. In Financial Mathematics (Without Thesis)',
+              'M.SC. In Advanced Architectural Design (Without Thesis)',
+              'M.SC. In Architecture (With Thesis)',
+              'M.SC. In Applied Statistics (With Thesis)',
+              'M.SC. Occupational Health and Safety (With Thesis) (Turkish)',
+              'M.SC. Occupational Health and Safety (Without Thesis) (Turkish)'
             ]
           },
           {
-            group: "Graduate School of Business",
+            group: 'Graduate School of Business',
             values: [
-              "MBA(With Thesis)",
-              "MBA(Without Thesis)",
-              "Executive MBA (English / Without Thesis)",
-              "Executive MBA (Turkish / Without Thesis)",
-              "Master of Business Administration - Distance Learning (e-MBA) (English)",
-              "Master of Business Administration - Distance Learning (e-MBA) (Turkish)",
-              "Finance (Without Thesis)"
+              'MBA(With Thesis)',
+              'MBA(Without Thesis)',
+              'Executive MBA (English / Without Thesis)',
+              'Executive MBA (Turkish / Without Thesis)',
+              'Master of Business Administration - Distance Learning (e-MBA) (English)',
+              'Master of Business Administration - Distance Learning (e-MBA) (Turkish)',
+              'Finance (Without Thesis)'
             ]
           }
         ]
       },
       {
-        inputType: "checkbox-input",
-        name: "Accept",
-        label: "Accept terms and conditions",
+        inputType: 'checkbox-input',
+        name: 'Accept',
+        label: 'Accept terms and conditions',
         defaultValue: true,
         validation: {
           required: {}
@@ -173,12 +186,12 @@ const form = {
   }
 };
 
-const sectionColumns = {
-  name: "columns",
+const columns = {
+  name: 'columns',
   data: {
     content: [
       {
-        name: "column",
+        name: 'column',
 
         data: {
           size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
@@ -186,22 +199,94 @@ const sectionColumns = {
         }
       },
       {
-        name: "column",
-        data: { size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }, content: [form] }
+        name: 'column',
+        data: {
+          size: { xs: 12, sm: 12, md: 6, lg: 6, xl: 6 },
+          content: [
+            {
+              name: 'paper',
+              data: {
+                content: [
+                  {
+                    name: 'box',
+                    data: {
+                      props: {
+                        padding: 2
+                      },
+                      content: [
+                       subHeadline,
+                       form
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ]
   }
 };
+
+// const section = {
+//   name: "section",
+//   data: {
+//     content: [headline, columns]
+//   }
+// };
+
 const section = {
-  name: "section",
+  name: 'box',
   data: {
-    content: [headline, sectionColumns]
+    props: {
+      paddingTop: { xs: 4, sm: 4, md: 8, lg: 12, xl: 18 },
+      paddingBottom: { xs: 4, sm: 4, md: 8, lg: 12, xl: 18 },
+      component: 'section'
+    },
+    content: [
+      {
+        name: 'container',
+        data: {
+          props: {
+            maxWidth: 'lg'
+          },
+          content: [
+            {
+              name: 'box',
+              data: {
+                props: {
+                  paddingBottom: 6
+                },
+                content: [headline]
+              }
+            }
+          ]
+        }
+      },
+      {
+        name: 'container',
+        data: {
+          props: {
+            maxWidth: 'md'
+          },
+          content: [
+            {
+              name: 'box',
+              data: {
+                content: [columns]
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 };
 
 export const page = {
-  id: "your-master-degree",
-  tile: "Your Master Degree",
+  id: 'your-master-degree',
+  tile: 'Your Master Degree',
   data: {
     content: [section]
   }

@@ -1,16 +1,15 @@
 import React from 'react';
-import { Typography, Container } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
-const Text = props => {
+const Text = ({data}) => {
   return (
-    <Container>
-      <Typography
-        {...props.data.props}
-        style={{ ...props.data.customStyle }}
-        dangerouslySetInnerHTML={{ __html: props.data.content }}
-        gutterBottom
-      />
-    </Container>
+    // <Container>
+    <Typography
+      {...data.props}
+      style={{ ...data.customStyle }}
+      dangerouslySetInnerHTML={{ __html: data.content }}
+    />
+    // </Container>
   );
 };
 
