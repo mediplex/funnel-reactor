@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { hostname } from 'os';
 
-import Ditto from './ditto';
+import Elements from './elements';
 import data from './data';
 import customRedirects from './data/campusturkey.org/custom-redirects';
 
@@ -25,8 +25,9 @@ const Page = ({ match }) => {
     setPage(data.pages.find(p => p.id === pageId));
   }, [match.params.id]);
 
+
   // TODO: page? renderPage : redirect NotFound
-  return <Ditto data={page ? page.data.content : null} />;
+  return  page && <Elements elements={page.data.elements} />;
 };
 
 export default Page;

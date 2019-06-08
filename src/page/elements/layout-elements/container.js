@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container as MaterialContainer } from '@material-ui/core';
-import Ditto from '../../ditto';
+import Elements from '..';
 
 const Container = ({ data }) => {
   return (
     <MaterialContainer {...data.props}>
-      <Ditto data={data.content} />
+      <Elements elements={data.elements} />
     </MaterialContainer>
   );
 };

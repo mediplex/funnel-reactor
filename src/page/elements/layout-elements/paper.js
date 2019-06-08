@@ -1,11 +1,11 @@
 import React from 'react';
 import { Paper as MaterialPaper } from '@material-ui/core';
-import Ditto from '../../ditto';
+import Elements from '..';
 
 const Paper = ({data}) => {
   return (
     <MaterialPaper>
-      <Ditto data={data.content} />
+      <Elements elements={data.elements} />
     </MaterialPaper>
   );
 };

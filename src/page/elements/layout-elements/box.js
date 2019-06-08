@@ -1,11 +1,13 @@
+/* eslint-disable import/no-cycle */
+
 import React from 'react';
 import { Box as MaterialBox } from '@material-ui/core';
-import Ditto from '../../ditto';
+import Elements from '..';
 
 const Box = ({ data }) => {
   return (
     <MaterialBox {...data.props}>
-      <Ditto data={data.content} />
+      <Elements elements={data.elements} />
     </MaterialBox>
   );
 };

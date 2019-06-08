@@ -35,8 +35,8 @@ const DynamicInput = props => {
 const BasicForm = props => {
   const [formSubmited, setFormSubmited] = useState(false);
 
-  const basicFormSchema = useValidation(props.data.content);
-  const initialValues = useInitialValues(props.data.content);
+  const basicFormSchema = useValidation(props.data.elements);
+  const initialValues = useInitialValues(props.data.elements);
 
   //TODO: trim strings
   //TODO: lowercase Emails
@@ -56,7 +56,7 @@ const BasicForm = props => {
           validationSchema={basicFormSchema}
           render={() => (
             <Form>
-              {props.data.content.map((el, index) => (
+              {props.data.elements.map((el, index) => (
                 <Field key={index} name={el.name}>
                   {({ field, ...props }) => {
                     return (
