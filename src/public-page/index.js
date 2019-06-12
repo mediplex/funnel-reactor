@@ -7,7 +7,7 @@ import { firestore } from '../firebase';
 
 import Elements from './elements';
 
-const Page = ({ match, history }) => {
+const PublicPage = ({ match, history }) => {
   const [page, setPage] = useState(null);
 
   useEffect(() => {
@@ -43,4 +43,4 @@ const Page = ({ match, history }) => {
   return page && <Elements elements={page.data.elements} />;
 };
 
-export default Page;
+export default PublicPage;

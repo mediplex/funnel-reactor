@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // TODO: dynamic import
-import Page from './page';
+import Page from './public-page';
 
 import PageNotFound from './page-not-found';
 

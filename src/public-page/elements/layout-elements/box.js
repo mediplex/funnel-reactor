@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Box as MaterialBox } from '@material-ui/core';
-import Elements from '..';
+import Elements from '../../elements';
 
 const Box = ({ data }) => {
   return (
