@@ -1,33 +1,46 @@
 import React, { useState, useEffect } from 'react';
+
+import { docData } from 'rxfire/firestore';
+import { switchMap, tap, map } from 'rxjs/operators';
 import { hostname } from 'os';
+import { firestore } from '../firebase';
 
 import Elements from './elements';
-import data from './data';
-import customRedirects from './data/campusturkey.org/custom-redirects';
 
-const Page = ({ match }) => {
+const Page = ({ match, history }) => {
   const [page, setPage] = useState(null);
 
   useEffect(() => {
-    let pageId = match.params.id;
+    const customDomainRef = firestore.collection('custom-domains').doc(hostname());
+    const customDomain$ = docData(customDomainRef);
 
-    if (!pageId) {
-      pageId = customRedirects
-        .find(redirect => redirect.hostname === hostname())
-        .redirects.find(redirect => redirect.from === '/').to;
-    }
+    const subscription = customDomain$
+      .pipe(
+        tap(customDomain => {
+          if (!customDomain.customPagePointers) history.push('/page-not-found');
+        }),
+        map(({ customPagePointers }) => customPagePointers.find(p => p.path === (match.params.slug || ''))),
+        tap(customPagePointer => {
+          if (!customPagePointer) history.push('/page-not-found');
+        }),
+        tap(customPagePointer => {
+          if (!customPagePointer.path) history.push('/page-not-found');
+        }),
+        switchMap(({ publicPageId }) => {
+          const publicPageRef = firestore.collection('public-pages').doc(publicPageId);
+          const publicPage$ = docData(publicPageRef);
+          return publicPage$;
+        }),
+        tap(publicPage => {
+          if (!publicPage.data) history.push('/page-not-found');
+        })
+      )
+      .subscribe(publicPage => setPage(publicPage), error => console.log(error));
 
-    // eslint-disable-next-line no-console
-    console.log(new Date());
-    // eslint-disable-next-line no-console
-    console.log(pageId);
+    return () => subscription.unsubscribe();
+  }, [match, history]);
 
-    setPage(data.pages.find(p => p.id === pageId));
-  }, [match.params.id]);
-
-
-  // TODO: page? renderPage : redirect NotFound
-  return  page && <Elements elements={page.data.elements} />;
+  return page && <Elements elements={page.data.elements} />;
 };
 
 export default Page;

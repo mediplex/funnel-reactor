@@ -1,8 +1,5 @@
-import campusTurkeyData from './campusturkey.org';
-import elementShowCaseData from './element-showcase';
+// import code from './custom-domains/code';
+// import DmNZG8yWl6zMgv6DroNH from './public-pages/DmNZG8yWl6zMgv6DroNH';
 
-const data = {};
-
-data.pages = [...campusTurkeyData.pages, ...elementShowCaseData.pages]
-
-export default data;
+// firestore.collection('custom-domains').doc('code').set(code)
+// firestore.collection('public-pages').doc('DmNZG8yWl6zMgv6DroNH').set(DmNZG8yWl6zMgv6DroNH)
