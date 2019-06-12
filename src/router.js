@@ -1,25 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-
-import { hostname } from 'os';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // TODO: dynamic import
 import Page from './page';
 
-// TODO: from database
-import customRedirects from './page/data/campusturkey.org/custom-redirects';
 import PageNotFound from './page-not-found';
 
 const appRoutes = [
-  // will be used to edit the page
-  // {
-  //   path: "/page/:id",
-  //   strict: true,
-  //   component: Page
-  // },
   {
-    path: '/:id',
+    path: '/page-not-found',
+    strict: true,
+    exact: true,
+    component: PageNotFound
+  },
+  {
+    path: '/:slug',
     strict: true,
     exact: true,
     component: Page
@@ -29,22 +25,11 @@ const appRoutes = [
     strict: true,
     exact: true,
     component: Page
-  },
-  {
-    component: PageNotFound
   }
 ];
 
 const Router = () => {
   const [routes] = useState(appRoutes);
-  const [redirects, setRedirects] = useState([]);
-
-  useEffect(() => {
-    // TODO: request from the database customRoutes by hostName
-    setRedirects(
-      customRedirects.find(redirect => redirect.hostname === hostname()).redirects // TODO: if undefined redirect to page-not-found
-    );
-  }, []);
 
   return (
     <BrowserRouter>
@@ -58,16 +43,6 @@ const Router = () => {
             exact={route.exact}
             strict={route.strict}
             component={route.component}
-          />
-        ))}
-
-        {redirects.map(redirect => (
-          <Redirect
-            key={Math.random()
-              .toString(36)
-              .substring(2, 15)}
-            from={redirect.from}
-            to={redirect.to}
           />
         ))}
       </Switch>
