@@ -158,7 +158,7 @@ export const page = {
                                     {
                                       inputType: 'text-input',
                                       name: 'Email',
-                                      label: 'Where Should We eSnt The Info?',
+                                      label: 'Where should we send you the info?',
                                       placeholder: 'Your best email',
                                       multiline: false,
                                       validation: {
@@ -166,8 +166,9 @@ export const page = {
                                         email: { errorMessage: 'invalid email' },
                                         matches: {
                                           // eslint-disable-next-line
-                                          regex: ` /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/`
-                                          // errorMessage: "invalid Email"
+                                          regex:
+                                            '^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$',
+                                          errorMessage: 'Invalid Email'
                                         }
                                       }
                                     },
@@ -216,15 +217,6 @@ export const page = {
                                         'MBA',
                                         'Executive MBA'
                                       ]
-                                    },
-                                    {
-                                      inputType: 'checkbox-input',
-                                      name: 'Accept',
-                                      label: 'Accept terms and conditions',
-                                      defaultValue: true,
-                                      validation: {
-                                        required: {}
-                                      }
                                     }
                                   ]
                                 }

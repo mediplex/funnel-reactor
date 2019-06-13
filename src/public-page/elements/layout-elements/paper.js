@@ -1,8 +1,8 @@
 import React from 'react';
 import { Paper as MaterialPaper } from '@material-ui/core';
-import Elements from '../../elements';
+import Elements from "..";
 
-const Paper = ({data}) => {
+const Paper = ({ data }) => {
   return (
     <MaterialPaper>
       <Elements elements={data.elements} />

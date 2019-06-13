@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container as MaterialContainer } from '@material-ui/core';
-import Elements from '../../elements';
+import Elements from "..";
 
 const Container = ({ data }) => {
   return (

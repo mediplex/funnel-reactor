@@ -7,6 +7,8 @@ import { firestore } from '../firebase';
 
 import Elements from './elements';
 
+// import './data';
+
 const PublicPage = ({ match, history }) => {
   const [page, setPage] = useState(null);
 
