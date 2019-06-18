@@ -16,9 +16,18 @@ const SelectInput = props => {
       }}
     >
       <option disabled />
-      
-      {props.options.map(option => <option key={option}>{option}</option>)}
 
+      {props.options.map(option =>
+        option.groupLabel ? (
+          <optgroup key={option.groupLabel} label={option.groupLabel}>
+            {option.values.map(o => (
+              <option key={o}>{o}</option>
+            ))}
+          </optgroup>
+        ) : (
+          option.values.map(o => <option key={o}>{o}</option>)
+        )
+      )}
     </TextField>
   );
 };

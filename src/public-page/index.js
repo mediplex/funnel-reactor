@@ -7,7 +7,7 @@ import { firestore } from '../firebase';
 
 import Elements from './elements';
 
-// import './data';
+import './data';
 
 const PublicPage = ({ match, history }) => {
   const [page, setPage] = useState(null);
@@ -37,7 +37,7 @@ const PublicPage = ({ match, history }) => {
           if (!publicPage.data) history.push('/page-not-found');
         })
       )
-      .subscribe(publicPage => setPage(publicPage), error => console.log(error));
+      .subscribe(publicPage => {setPage(publicPage)}, error => console.log(error));
 
     return () => subscription.unsubscribe();
   }, [match, history]);

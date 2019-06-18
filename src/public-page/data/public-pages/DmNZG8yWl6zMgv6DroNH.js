@@ -36,8 +36,8 @@ export const page = {
         name: 'box',
         data: {
           props: {
-            paddingTop: { xs: 4, sm: 4, md: 6, lg: 6, xl: 18 },
-            paddingBottom: { xs: 4, sm: 4, md: 6, lg: 6, xl: 18 },
+            paddingTop: [4, 4, 6, 6, 18], // { xs: 4, sm: 4, md: 6, lg: 6, xl: 18 },
+            paddingBottom: [4, 4, 6, 6, 18], // { xs: 4, sm: 4, md: 6, lg: 6, xl: 18 },
             component: 'section'
           },
           elements: [
@@ -68,17 +68,7 @@ export const page = {
                         }
                       ]
                     }
-                  }
-                ]
-              }
-            },
-            {
-              name: 'container',
-              data: {
-                props: {
-                  maxWidth: 'md'
-                },
-                elements: [
+                  },
                   {
                     name: 'box',
                     data: {
@@ -86,18 +76,14 @@ export const page = {
                         {
                           name: 'box',
                           data: {
+                            // columns
                             props: {
                               display: 'flex',
-                              flexDirection: {
-                                xs: 'column',
-                                sm: 'column',
-                                md: 'column',
-                                lg: 'row',
-                                xl: 'row'
-                              },
-                              alignItems: 'flex-star',
+                              // flexDirection: 'row',
+
+                              flexDirection: ['column', 'column', 'column', 'row', 'row'],
+                              alignItems: 'flex-start',
                               flexWrap: 'nowrap'
-                              // css:{ backgroundImage: "url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/...}
                             },
                             elements: [
                               {
@@ -105,11 +91,11 @@ export const page = {
                                 name: 'box',
                                 data: {
                                   props: {
-                                    flex: 1.5,
-                                    paddingTop: { xs: 2, sm: 2, md: 2, lg: 0, xl: 0 },
-                                    paddingBottom: { xs: 2, sm: 2, md: 2, lg: 0, xl: 0 },
-                                    paddingRight: { xs: 0, sm: 0, md: 0, lg: 2, xl: 2 },
-                                    paddingLeft: { xs: 0, sm: 0, md: 0, lg: 0, xl: 0 }
+                                    flex: 60,
+                                    paddingTop: [2, 2, 2, 2, 2], // { xs: 2, sm: 2, md: 2, lg: 0, xl: 0 },
+                                    paddingBottom: [2, 2, 2, 0, 0], // { xs: 2, sm: 2, md: 2, lg: 0, xl: 0 },
+                                    paddingRight: [0, 0, 0, 2, 2], // { xs: 0, sm: 0, md: 0, lg: 2, xl: 2 },
+                                    paddingLeft: [0, 0, 0, 0, 0] // { xs: 0, sm: 0, md: 0, lg: 0, xl: 0 }
                                   },
                                   elements: [
                                     {
@@ -118,7 +104,7 @@ export const page = {
                                         customStyle: {
                                           // margin: 'auto',
                                           // maxWidth: '256px',
-                                          borderRadius: '290486px'
+                                          // borderRadius: '290486px'
                                         },
                                         props: {
                                           src: 'http://bbu.edu.az/uploads/images/Izmir-University-of-Economics.jpg',
@@ -150,73 +136,20 @@ export const page = {
                                   ]
                                 }
                               },
+                              // column 2
                               {
-                                name: 'basic-form',
+                                name: 'box',
                                 data: {
-                                  redirectTo: 'thank-you-for-your-request',
+                                  props: {
+                                    flex: 40
+                                  },
                                   elements: [
                                     {
-                                      inputType: 'text-input',
-                                      name: 'Email',
-                                      label: 'Where should we send you the info?',
-                                      placeholder: 'Your best email',
-                                      multiline: false,
-                                      validation: {
-                                        required: {},
-                                        email: { errorMessage: 'invalid email' },
-                                        matches: {
-                                          // eslint-disable-next-line
-                                          regex:
-                                            '^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$',
-                                          errorMessage: 'Invalid Email'
-                                        }
+                                      name: 'basic-form',
+                                      data: {
+                                        basicFormId: 'CQGaZQxVhXUdEYD5kEmx',
+                                        listId: 'vhHr4FEEE2SKEr3IC4cX'
                                       }
-                                    },
-                                    {
-                                      inputType: 'text-input',
-                                      name: 'Name',
-                                      label: 'What is you name?',
-                                      placeholder: 'Your Name',
-                                      validation: { required: {} }
-                                    },
-                                    {
-                                      inputType: 'text-input',
-                                      name: 'WhatsApp',
-                                      label: 'Where should we call you?',
-                                      placeholder: '06xxxxxxx',
-                                      validation: { required: {} }
-                                    },
-                                    {
-                                      inputType: 'select-input',
-                                      name: 'Master Program',
-                                      label: 'What Master Program Do You Want?',
-                                      validation: {
-                                        required: {}
-                                      },
-                                      options: [
-                                        'Experimental Psychology',
-                                        'Financial Economics',
-                                        'Logistics Management',
-                                        'Media and Communication Studies',
-                                        'Private Law Graduate Program',
-                                        'Marketing Communication and Public Relations',
-                                        'Political Science and International Relations',
-                                        'Sustainable Energy',
-                                        'Design Studies',
-                                        'Design Management',
-                                        'Yacht Design',
-                                        'M.SC. In Intelligent Engineering Systems',
-                                        'M.SC. in Bioengineering',
-                                        'M.SC. in Computer Engineering',
-                                        'M.SC. in Electrical and Electronics Engineering',
-                                        'M.SC. In Industrial Engineering',
-                                        'M.SC. In Financial Mathematics',
-                                        'M.SC. In Advanced Architectural Design',
-                                        'M.SC. In Architecture',
-                                        'M.SC. In Applied Statistics',
-                                        'MBA',
-                                        'Executive MBA'
-                                      ]
                                     }
                                   ]
                                 }
