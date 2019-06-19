@@ -37,9 +37,20 @@ const PublicPage = ({ match, history }) => {
           if (!publicPage.data) history.push('/page-not-found');
         })
       )
-      .subscribe(publicPage => {setPage(publicPage)}, error => console.log(error));
+      .subscribe(
+        publicPage => {
+          setPage(publicPage);
+        },
+        error => console.log(error)
+      );
 
     return () => subscription.unsubscribe();
+  }, [match, history]);
+
+  useEffect(() => {
+    console.log('[EVENT] Page View');
+    console.log(history);
+    console.log(match);
   }, [match, history]);
 
   return page && <Elements elements={page.data.elements} />;
