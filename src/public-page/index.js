@@ -7,7 +7,9 @@ import { firestore } from '../firebase';
 
 import Elements from './elements';
 
-import './data';
+import facebookPixel from './trackers/facebook-pixel';
+
+// import './data';
 
 const PublicPage = ({ match, history }) => {
   const [page, setPage] = useState(null);
@@ -37,9 +39,20 @@ const PublicPage = ({ match, history }) => {
           if (!publicPage.data) history.push('/page-not-found');
         })
       )
-      .subscribe(publicPage => {setPage(publicPage)}, error => console.log(error));
+      .subscribe(
+        publicPage => {
+          setPage(publicPage);
+        },
+        error => console.log(error)
+      );
 
     return () => subscription.unsubscribe();
+  }, [match, history]);
+
+  useEffect(() => {
+    facebookPixel.init('2365292540183374');
+    facebookPixel.pageView();
+    facebookPixel.track('ViewContent');
   }, [match, history]);
 
   return page && <Elements elements={page.data.elements} />;

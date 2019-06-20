@@ -2,38 +2,39 @@ export const page = {
   id: 'thank-you-for-your-request',
   title: 'Thank For You Request',
   data: {
-    content: [{
-  name: 'section',
-  data: {
-    content: [
+    elements: [
       {
-        name: 'text',
+        name: 'box',
         data: {
-          props: {
-            variant: 'h2',
-            component: 'h1'
-          },
-          customStyle: {},
-          content: `Get ready to receive a call from your campus turkey advisor`
-        }
-      },
-      {
-        name: 'youtube-video',
-        data: {
-          customStyle: {},
-          props: {
-            src: 'https://www.youtube-nocookie.com/embed/4F9VxoWoPf4?controls=0'
-          }
-        }
-      },
-      {
-        name: 'text',
-        data: {
-          props: {
-            variant: 'body2',
-            paragraph: true
-          },
-          content: `
+          elements: [
+            {
+              name: 'typograhpy',
+              data: {
+                props: {
+                  variant: 'h2',
+                  component: 'h1'
+                },
+                customStyle: {},
+                html: `Get ready to receive a call from your campus turkey advisor`
+              }
+            },
+            {
+              name: 'youtube-video',
+              data: {
+                customStyle: {},
+                props: {
+                  src: 'https://www.youtube-nocookie.com/embed/4F9VxoWoPf4?controls=0'
+                }
+              }
+            },
+            {
+              name: 'typograhpy',
+              data: {
+                props: {
+                  variant: 'body2',
+                  paragraph: true
+                },
+                html: `
         <ul>
             <li>confirm your email</li>
             <li>like our facebook page</li>
@@ -45,11 +46,12 @@ export const page = {
         Non quam lacus suspendisse faucibus. Mauris sit amet massa vitae tortor condimentum.
         Vulputate enim nulla aliquet porttitor lacus. Pretium quam vulputate dignissim suspendisse in est ante in nibh.
         `
+              }
+            }
+          ]
         }
       }
     ]
-  }
-}]
   }
 };
 
