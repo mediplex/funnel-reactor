@@ -7,7 +7,9 @@ import { firestore } from '../firebase';
 
 import Elements from './elements';
 
-import './data';
+import facebookPixel from './trackers/facebook-pixel';
+
+// import './data';
 
 const PublicPage = ({ match, history }) => {
   const [page, setPage] = useState(null);
@@ -48,9 +50,9 @@ const PublicPage = ({ match, history }) => {
   }, [match, history]);
 
   useEffect(() => {
-    console.log('[EVENT] Page View');
-    console.log(history);
-    console.log(match);
+    facebookPixel.init('2365292540183374');
+    facebookPixel.pageView();
+    facebookPixel.track('ViewContent');
   }, [match, history]);
 
   return page && <Elements elements={page.data.elements} />;
