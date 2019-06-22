@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { lazy, useState, Suspense } from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-// TODO: dynamic import
-import Page from './public-page';
+const Page = lazy(() => import('./public-page'));
+const PageNotFound = lazy(() => import('./page-not-found'));
 
-import PageNotFound from './page-not-found';
 
 const appRoutes = [
   {
@@ -33,19 +32,21 @@ const Router = () => {
 
   return (
     <BrowserRouter>
-      <Switch>
-        {routes.map(route => (
-          <Route
-            key={Math.random()
-              .toString(36)
-              .substring(2, 15)}
-            path={route.path}
-            exact={route.exact}
-            strict={route.strict}
-            component={route.component}
-          />
-        ))}
-      </Switch>
+      <Suspense fallback={<div>page loading...</div>}>
+        <Switch>
+          {routes.map(route => (
+            <Route
+              key={Math.random()
+                .toString(36)
+                .substring(2, 15)}
+              path={route.path}
+              exact={route.exact}
+              strict={route.strict}
+              component={route.component}
+            />
+          ))}
+        </Switch>
+      </Suspense>
     </BrowserRouter>
   );
 };
