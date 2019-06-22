@@ -1,7 +1,6 @@
 /* eslint-disable import/no-cycle */
 
 import React, { Suspense } from 'react';
-import Loading from './misc-elements/loading';
 
 const Box = React.lazy(() => import('./layout-elements/box'));
 const Container = React.lazy(() => import('./layout-elements/container'));
@@ -43,7 +42,7 @@ const Element = ({ name, data }) => {
 
 const Elements = ({ elements }) => {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<></>}>
       {elements &&
         elements.map(el => {
           const id = Math.random()
