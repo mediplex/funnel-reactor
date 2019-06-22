@@ -1,4 +1,4 @@
-export const reducer = (state = {} , action) => {
+export const rootReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_LOADING':
       return { ...state, loading: action.payload };
@@ -16,4 +16,4 @@ export const reducer = (state = {} , action) => {
   }
 };
 
-export default reducer;
+export default rootReducer;
