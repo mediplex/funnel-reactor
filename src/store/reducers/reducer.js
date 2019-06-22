@@ -1,4 +1,4 @@
-const reducer = (state = {} , action) => {
+export const reducer = (state = {} , action) => {
   switch (action.type) {
     case 'SET_LOADING':
       return { ...state, loading: action.payload };

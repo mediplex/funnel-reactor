@@ -1,0 +1,1 @@
+export {reducer as rootReducer} from './reducer'
