@@ -4,9 +4,15 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const Page = lazy(() => import('./public-page'));
 const PageNotFound = lazy(() => import('./page-not-found'));
-
+const CustomDomainNameError = lazy(() => import('./custom-domain-name-error'));
 
 const appRoutes = [
+  {
+    path: '/custom-domain-name-error',
+    strict: true,
+    exact: true,
+    component: CustomDomainNameError
+  },
   {
     path: '/page-not-found',
     strict: true,

@@ -27,7 +27,7 @@ firestore
   .set(SGq3kXQmScOUCXHmRLzV);
 
 firestore
-  .collection('forms')
+  .collection('basic-forms')
   .doc('CQGaZQxVhXUdEYD5kEmx')
   .set(CQGaZQxVhXUdEYD5kEmx);
 

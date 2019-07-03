@@ -1,5 +1,5 @@
 const formData = {
-  redirectTo: 'thank-you-for-your-request',
+  redirectTo: '/thank-you-for-your-request',
   elements: [
     {
       inputType: 'text-input',

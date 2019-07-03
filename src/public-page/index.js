@@ -1,71 +1,41 @@
 import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
-
-import { docData } from 'rxfire/firestore';
-import { switchMap, tap, map } from 'rxjs/operators';
-import { hostname } from 'os';
-import { firestore } from '../firebase';
-
 import Elements from './elements';
+
+import * as actions from '../store/actions';
 
 // import facebookPixel from './trackers/facebook-pixel';
 
-// import './data';
-
-import DmNZG8yWl6zMgv6DroNH from './data/public-pages/DmNZG8yWl6zMgv6DroNH'
+import './data';
 
 const PublicPage = ({
   match,
   history,
   loading,
   currentPublicPage,
+  fetchPublicPage,
   currentCustomDomainName,
-  setLoading,
-  setCurrentCustomDomainName,
-  setCurrentPublicPage
+  fetchCustomDomainName,
+  setLoading
 }) => {
   useEffect(() => {
-    setLoading(true);
-    setCurrentPublicPage(DmNZG8yWl6zMgv6DroNH);
-
-    // const customDomainRef = firestore.collection('custom-domains').doc(hostname());
-    // const customDomain$ = docData(customDomainRef);
-
-    // const subscription = customDomain$
-    //   .pipe(
-    //     tap(customDomainName => {
-    //       if (!customDomainName.customPagePointers) history.push('/page-not-found');
-    //       else dispatch.setCurrentCustomDomainName(customDomainName);
-    //     }),
-    //     map(({ customPagePointers }) => customPagePointers.find(p => p.path === (match.params.slug || ''))),
-    //     tap(customPagePointer => {
-    //       if (!customPagePointer) history.push('/page-not-found');
-    //     }),
-    //     tap(customPagePointer => {
-    //       if (!customPagePointer.path) history.push('/page-not-found');
-    //     }),
-    //     switchMap(({ publicPageId }) => {
-    //       const publicPageRef = firestore.collection('public-pages').doc(publicPageId);
-    //       const publicPage$ = docData(publicPageRef);
-    //       return publicPage$;
-    //     }),
-    //     tap(publicPage => {
-    //       if (!publicPage.data) history.push('/page-not-found');
-    //     })
-    //   )
-    //   .subscribe(
-    //     publicPage => {
-    //       dispatch.setCurrentPublicPage(publicPage);
-    //       dispatch.setLoading(false);
-    //     },
-    //     error => console.log(error)
-    //   );
-
-    setLoading(false);
-
-    // return () => subscription.unsubscribe();
-  }, [match.params.slug, history]);
+    if (currentCustomDomainName) {
+      if (currentPublicPage) {
+        setLoading(false);
+      } else {
+        setLoading(true);
+        const customPagePointer = currentCustomDomainName.customPagePointers.find(
+          p => p.path === (match.params.slug || '')
+        );
+        if (customPagePointer && customPagePointer.publicPageId) fetchPublicPage(customPagePointer.publicPageId);
+        else history.push('page-not-found');
+      }
+    } else {
+      setLoading(true);
+      fetchCustomDomainName();
+    }
+  }, [setLoading, currentCustomDomainName, fetchCustomDomainName, currentPublicPage, fetchPublicPage, match, history]);
 
   return loading ? <div>loading data...</div> : <Elements elements={currentPublicPage.data.elements} />;
 };
@@ -76,11 +46,13 @@ const mapStateToProps = state => ({
   currentCustomDomainName: state.currentCustomDomainName
 });
 
-const mapDispatchToProps = dispatch => ({
-  setLoading: loading => dispatch({ type: 'SET_LOADING', payload: loading }),
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  setLoading: loading => dispatch(actions.setLoading(loading)),
+  fetchCustomDomainName: () => dispatch(actions.fetchCustomDomainName(ownProps.history)),
   setCurrentCustomDomainName: currentCustomDomainName =>
-    dispatch({ type: 'SET_CURRENT_CUSTOM_DOMAIN_NAME', payload: currentCustomDomainName }),
-  setCurrentPublicPage: publicPage => dispatch({ type: 'SET_CURRENT_PUBLIC_PAGE', payload: publicPage })
+    dispatch(actions.setCurrentCustomDomainName(currentCustomDomainName)),
+  fetchPublicPage: publicPageId => dispatch(actions.fetchPublicPage(publicPageId, ownProps.history)),
+  setCurrentPublicPage: publicPage => dispatch(actions.setCurrentPublicPage(publicPage))
 });
 
 export default connect(
