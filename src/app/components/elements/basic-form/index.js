@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 // import yup from 'yup';
 import { object as yupObject, string as yupString, bool as yupBool } from 'yup';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 import { Button } from '@material-ui/core';
 import { Formik, Form, Field } from 'formik';
 
-// const TextInput = dynamic(import('./text-input'));
-// const SelectInput = dynamic(import('./select-input'));
-const CheckboxInput = dynamic(import('./checkbox-input'));
-
+import Router from 'next/router';
 import TextInput from './text-input';
-import SelectInput from './select-input';
+// import SelectInput from './select-input';
 // import CheckboxInput from './checkbox-input';
 
-import Router from 'next/router';
+
+// const TextInput = dynamic(import('./text-input'));
+const SelectInput = dynamic(import('./select-input'));
+const CheckboxInput = dynamic(import('./checkbox-input'));
 
 const DynamicInput = props => {
   const { inputType } = props;
@@ -71,10 +71,7 @@ const BasicForm = ({ data }) => {
               y = yupString();
               if (el.validation.required) y = y.required(el.validation.required.errorMessage);
               if (el.validation.matches)
-                y = y.matches(
-                  new RegExp(el.validation.matches.regex),
-                  el.validation.matches.errorMessage
-                );
+                y = y.matches(new RegExp(el.validation.matches.regex), el.validation.matches.errorMessage);
               break;
 
             case 'select-input':
@@ -126,9 +123,10 @@ const BasicForm = ({ data }) => {
   const handleSubmit = async values => {
     console.log('form submitted');
 
-    const [firebase, firestore] = await import('../../../firebase').then(
-      ({ firebase, firestore }) => [firebase, firestore]
-    );
+    const [firebase, firestore] = await import('../../../firebase').then(({ firebase, firestore }) => [
+      firebase,
+      firestore
+    ]);
 
     firestore
       .collection('lists')
@@ -155,9 +153,7 @@ const BasicForm = ({ data }) => {
               {({ field, ...props }) => {
                 return (
                   <DynamicInput
-                    {...(el.inputType === 'text-input' && el.multiline
-                      ? { multiline: el.multiline, rows: 5 }
-                      : {})}
+                    {...(el.inputType === 'text-input' && el.multiline ? { multiline: el.multiline, rows: 5 } : {})}
                     {...(el.inputType === 'select-input' ? { options: el.options } : {})}
                     {...(el.inputType === 'text-input' ? { placeholder: el.placeholder } : {})}
                     inputType={el.inputType}
@@ -172,7 +168,7 @@ const BasicForm = ({ data }) => {
           <Button
             type="submit"
             variant="contained"
-            fullWidth={true}
+            fullWidth
             style={{
               backgroundColor: 'rgb(255, 55, 55)',
               color: '#fff',

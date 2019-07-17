@@ -2,7 +2,7 @@ import { withRouter } from 'next/router';
 
 import Elements from '../components/elements';
 // import Head from 'next/head';
-// import '../data'
+import '../data';
 
 // const Title = title => <title>{title}</title>;
 
