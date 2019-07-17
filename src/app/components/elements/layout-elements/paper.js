@@ -4,7 +4,10 @@ import Elements from "..";
 
 const Paper = ({ data }) => {
   return (
-    <MaterialPaper>
+    <MaterialPaper
+      elevation={data.paper && data.paper.elevation}
+      square={data.paper && data.paper.square}
+    >
       <Elements elements={data.elements} />
     </MaterialPaper>
   );

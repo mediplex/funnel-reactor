@@ -1,36 +1,30 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
   figure: {
     margin: 0,
     padding: 0,
-    display: "block",
-    position: "relative"
+    display: 'block',
+    position: 'relative'
   },
   img: {
-    display: "block",
-    height: "auto",
-    width: "100%",
+    display: 'block',
+    height: 'auto',
+    width: '100%',
     borderRadius: 4
   }
 });
 
-// const ThisWillWork = forwardRef((props, ref) => {
-//   return <button ref={ref}>Text</button>;
-// });
-
-const Image = props => {
-  const { classes } = props;
+const Image = ({ data, classes }) => {
   // figure + caption + size
 
   return (
-    <figure className={classes.figure} style={{ ...props.data.customStyle }}>
+    <figure className={classes.figure} style={data.customStyle && { ...data.customStyle }}>
       {/* eslint-disable-next-line */}
-      <img   className={classes.img} {...props.data.props} />
+      <img className={classes.img} {...data.props} />
     </figure>
   );
 };
-
 
 export default withStyles(styles)(Image);
