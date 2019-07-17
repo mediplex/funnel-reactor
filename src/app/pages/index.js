@@ -14,7 +14,13 @@ const redirectToNotFoundPage = () => {
   throw err;
 };
 
+
 const Page = ({ page, error404 }) => {
+
+const getElements = () => {
+  const data = JSON.parse(page.data);
+  return data.elements
+}
   {
     /* <Head>
         {page.title && <Title title={page.title} />}
@@ -22,7 +28,7 @@ const Page = ({ page, error404 }) => {
       </Head> */
   }
   if (error404) redirectToNotFoundPage();
-  else return !page ? <div>loading public page data...</div> : <Elements elements={page.data.elements} />;
+  else return !page ? <div>loading public page data...</div> : <Elements elements={getElements()} />;
 };
 
 Page.getInitialProps = async ({ req, query }) => {
@@ -60,9 +66,9 @@ Page.getInitialProps = async ({ req, query }) => {
         })
         .catch(err => console.log(err));
       return { page };
-    } else {
+    } 
       return { error404: true };
-    }
+    
   } else {
     return { error404: true };
   }
