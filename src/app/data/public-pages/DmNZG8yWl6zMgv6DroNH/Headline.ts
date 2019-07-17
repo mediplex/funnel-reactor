@@ -21,7 +21,7 @@ export const headline = {
                   variant: 'h3',
                   align: 'center'
                 },
-                html: `🔥 Important 🔥<br><br> Are You From <strong style="color:#2aa53f"><u>Morocco</u></strong>? You Can Now <strong style="color:#ff3737">Study</strong> and <strong style="color:#ff3737">Work</strong> in <strong style="color:#ff3737">Turkey</strong> Starting From September.<br> Request More Information Now!`
+                html: `Are You From <strong style="color:#2aa53f"><u>Morocco</u></strong>? You Can Now <strong style="color:#ff3737">Study</strong> and <strong style="color:#ff3737">Work</strong> in <strong style="color:#ff3737">Turkey</strong> Starting From September.<br>Request More Information Now!`
               }
             }
           ]

@@ -172,11 +172,11 @@ const BasicForm = ({ data }) => {
             style={{
               backgroundColor: 'rgb(255, 55, 55)',
               color: '#fff',
-              padding: '2rem',
-              marginTop: '1.5rem'
+              padding: '1rem',
+              marginTop: '1rem'
             }}
           >
-            I want to study in Turkey
+            ⚪ Send me more information now
           </Button>
         </Form>
       )}

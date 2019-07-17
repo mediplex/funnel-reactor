@@ -1,40 +1,67 @@
 const form = {
-  name: 'basic-form',
+  name: 'box',
   data: {
-    basicFormId: 'CQGaZQxVhXUdEYD5kEmx',
-    listId: 'vhHr4FEEE2SKEr3IC4cX',
-    redirectTo: 'thank-you-for-your-request',
+    props: {
+      padding: '1rem'
+    },
     elements: [
       {
-        inputType: 'text-input',
-        name: 'Email',
-        label: 'Where should we send you the info?',
-        placeholder: 'Your best email',
-        multiline: false,
-        validation: {
-          required: {},
-          email: { errorMessage: 'invalid email' },
-          matches: {
-            // eslint-disable-next-line
-            regex:
-              '^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$',
-            errorMessage: 'Invalid Email'
-          }
+        name: 'box',
+        data: {
+          elements: [
+            {
+              name: 'typograhpy',
+              data: {
+                props: {
+                  component: 'h2',
+                  variant: 'h6'
+                },
+                html: `Where do you want to receive the info?`
+              }
+            }
+          ]
         }
       },
       {
-        inputType: 'text-input',
-        name: 'Name',
-        label: 'What is you name?',
-        placeholder: 'Your Name',
-        validation: { required: {} }
-      },
-      {
-        inputType: 'text-input',
-        name: 'WhatsApp',
-        label: 'Where should we call you?',
-        placeholder: '06xxxxxxx',
-        validation: { required: {} }
+        name: 'basic-form',
+        data: {
+          basicFormId: 'CQGaZQxVhXUdEYD5kEmx',
+          listId: 'vhHr4FEEE2SKEr3IC4cX',
+          redirectTo: 'thank-you-for-your-request',
+          elements: [
+            {
+              inputType: 'text-input',
+              name: 'Name',
+              label: 'What is you name?',
+              placeholder: 'Your Name',
+              validation: { required: {} }
+            },
+            {
+              inputType: 'text-input',
+              name: 'Email',
+              label: `What's is you email Address?`,
+              placeholder: 'Your best email',
+              multiline: false,
+              validation: {
+                required: {},
+                email: { errorMessage: 'invalid email' },
+                matches: {
+                  // eslint-disable-next-line
+                  regex:
+                    '^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$',
+                  errorMessage: 'Invalid Email'
+                }
+              }
+            },
+            {
+              inputType: 'text-input',
+              name: 'WhatsApp',
+              label: `What's you phone number`,
+              placeholder: '06xxxxxxx',
+              validation: { required: {} }
+            }
+          ]
+        }
       }
     ]
   }
@@ -138,7 +165,7 @@ export const main = {
                           name: 'paper',
                           data: {
                             props: {
-                              elevation: 2
+                              elevation: 1
                             },
                             elements: [form]
                           }
