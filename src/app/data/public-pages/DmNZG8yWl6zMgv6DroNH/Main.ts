@@ -82,17 +82,10 @@ const image = {
 };
 
 const bulletList = {
-  name: 'typograhpy',
+  name: 'BulletList',
   data: {
-    props: {
-      variant: 'body2',
-      paragraph: true
-    },
-    html: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Id aliquet lectus proin nibh nisl condimentum id venenatis a.
-        Non quam lacus suspendisse faucibus. Mauris sit amet massa vitae tortor condimentum.
-        Vulputate enim nulla aliquet porttitor lacus. Pretium quam vulputate dignissim suspendisse in est ante in nibh.`
+    props: {},
+    items: ['🔴 Discuss with you parent', '🔴 Help you to get accepted', '🔴 npWe guaranty you acceptence']
   }
 };
 
