@@ -15,7 +15,7 @@ const data = JSON.stringify(
   {
     elements: [
       // topBar,
-      headline,
+      // headline,
       main,
       // ourStudents,
       // whyIzmir,

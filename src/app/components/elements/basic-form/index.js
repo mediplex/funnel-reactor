@@ -170,13 +170,13 @@ const BasicForm = ({ data }) => {
             variant="contained"
             fullWidth
             style={{
-              backgroundColor: 'rgb(255, 55, 55)',
+              backgroundColor: 'rgb(244, 177, 84)',
               color: '#fff',
               padding: '1rem',
               marginTop: '1rem'
             }}
           >
-            ⚪ Send me more information now
+            Send me more information now
           </Button>
         </Form>
       )}

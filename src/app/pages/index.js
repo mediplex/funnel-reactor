@@ -14,13 +14,11 @@ const redirectToNotFoundPage = () => {
   throw err;
 };
 
-
 const Page = ({ page, error404 }) => {
-
-const getElements = () => {
-  const data = JSON.parse(page.data);
-  return data.elements
-}
+  const getElements = () => {
+    const data = JSON.parse(page.data);
+    return data.elements;
+  };
   {
     /* <Head>
         {page.title && <Title title={page.title} />}
@@ -28,7 +26,34 @@ const getElements = () => {
       </Head> */
   }
   if (error404) redirectToNotFoundPage();
-  else return !page ? <div>loading public page data...</div> : <Elements elements={getElements()} />;
+  else
+    return !page ? (
+      <div>loading public page data...</div>
+    ) : (
+      <div
+        style={{
+          backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/c/cd/Istanbul_skyline.svg)',
+          backgroundSize: '25%',
+          backgroundRepeat: 'repeat-x',
+          height: '100%',
+          backgroundPosition: 'bottom'
+        }}
+      >
+        <Elements elements={getElements()} />
+        <style global jsx>
+          {`
+            html,
+            body,
+            body > div:first-child,
+            div#__next,
+            div#__next > div,
+            div#__next > div > div {
+              height: 100%;
+            }
+          `}
+        </style>
+      </div>
+    );
 };
 
 Page.getInitialProps = async ({ req, query }) => {
@@ -60,18 +85,16 @@ Page.getInitialProps = async ({ req, query }) => {
         .then(doc => {
           if (doc.exists) {
             return { ...doc.data() };
-          } else {
+          } 
             return { error404: true };
-          }
+          
         })
         .catch(err => console.log(err));
       return { page };
-    } 
-      return { error404: true };
-    
-  } else {
+    }
     return { error404: true };
   }
+  return { error404: true };
 };
 
 export default withRouter(Page);
