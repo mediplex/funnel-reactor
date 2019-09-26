@@ -8,7 +8,9 @@
     "build": "cd src/app && npm run build",
     "dev": "cd src/app && npm run dev",
     "prod": "npm run build && npm run start",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "update": "cd src/app && npm update"
+
   },
   "repository": {
     "type": "git",
