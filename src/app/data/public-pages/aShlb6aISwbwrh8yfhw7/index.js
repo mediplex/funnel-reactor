@@ -26,8 +26,8 @@ const data = JSON.stringify({
     {
       name: 'box',
       data: {
-        props: {},
-        elements: [importantAnnounement]
+        props: {}, 
+        elements: [menu]
       }
     },
     {
