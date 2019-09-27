@@ -15,10 +15,10 @@ class _App extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      // <Container>
+      <>
         <CssBaseline />
         <Component {...pageProps} />
-      // </Container>
+      </>
     );
   }
 }
