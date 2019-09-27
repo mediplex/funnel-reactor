@@ -1,5 +1,7 @@
 /* eslint-disable import/no-cycle */
 
+import dynamic from 'next/dynamic';
+
 import Box from './layout-elements/box';
 import Container from './layout-elements/container';
 import Paper from './layout-elements/paper';
@@ -10,8 +12,8 @@ import Image from './media-elements/image';
 import Typograhpy from './text-elements/typograhpy';
 import BasicForm from './basic-form';
 import Grid from './layout-elements/Grid';
+import Level from './layout-elements/Level';
 
-import dynamic from 'next/dynamic';
 
 // const Box = dynamic(import('./layout-elements/box'));
 // const Container = dynamic(import('./layout-elements/container'));
@@ -31,6 +33,8 @@ const Element = ({ name, data }) => {
   switch (name) {
     case 'Grid':
       return <Grid data={data} />;
+    case 'Level':
+      return <Level data={data} />;
     case 'box':
       return <Box data={data} />;
     case 'container':
