@@ -31,16 +31,16 @@ const Page = ({ page, error404 }) => {
       <div>loading public page data...</div>
     ) : (
       <div
-        style={{
-          backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/c/cd/Istanbul_skyline.svg)',
-          backgroundSize: '25%',
-          backgroundRepeat: 'repeat-x',
-          height: '100%',
-          backgroundPosition: 'bottom'
-        }}
+        // style={{
+        //   backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/c/cd/Istanbul_skyline.svg)',
+        //   backgroundSize: '25%',
+        //   backgroundRepeat: 'repeat-x',
+        //   height: '100%',
+        //   backgroundPosition: 'bottom'
+        // }}
       >
         <Elements elements={getElements()} />
-        <style global jsx>
+        {/* <style global jsx>
           {`
             html,
             body,
@@ -51,7 +51,7 @@ const Page = ({ page, error404 }) => {
               height: 100%;
             }
           `}
-        </style>
+        </style> */}
       </div>
     );
 };
