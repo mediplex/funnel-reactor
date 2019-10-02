@@ -1,4 +1,4 @@
-export const menu = {
+export const nav = {
   name: 'container',
   data: {
     props: {
@@ -119,4 +119,4 @@ export const menu = {
   }
 };
 
-export default menu;
+export default nav;

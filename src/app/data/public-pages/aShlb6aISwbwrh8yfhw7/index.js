@@ -4,7 +4,7 @@ import description from './components/description';
 import footer from './components/footer';
 import gallery from './components/gallery';
 import hurryMessage from './components/hurryMessage';
-import menu from './components/menu';
+import nav from './components/nav';
 import miniBuyButton from './components/miniBuyButton';
 import offer from './components/offer';
 import recentReviews from './components/recentReviews';
@@ -17,37 +17,49 @@ const data = JSON.stringify({
       name: 'box',
       data: {
         props: {
-          // height: '5rem',
-          bgcolor: '#4e4e4e'
+          component: 'header',
+          style: {
+            backgroundImage: 'linear-gradient(141deg,#dfd8d9 0,#f5f5f5 71%,#fff 100%)'
+          }
         },
-        elements: [topBar]
-      }
-    },
-    {
-      name: 'box',
-      data: {
-        props: {}, 
-        elements: [menu]
-      }
-    },
-    {
-      name: 'box',
-      data: {
-        props: {
-          height: '5rem',
-          bgcolor: '#4e4e4e'
-        },
-        elements: []
-      }
-    },
-    {
-      name: 'box',
-      data: {
-        props: {
-          height: '5rem',
-          bgcolor: '#fefefe'
-        },
-        elements: []
+        elements: [
+          {
+            name: 'box',
+            data: {
+              props: {
+                // height: '5rem',
+                bgcolor: '#4e4e4e'
+              },
+              elements: [topBar]
+            }
+          },
+          {
+            name: 'box',
+            data: {
+              props: {
+                padding: 1
+              },
+              elements: [nav]
+            }
+          },
+          {
+            name: 'box',
+            data: {
+              props: {
+                padding: 1
+              },
+              elements: [importantAnnounement]
+            }
+          },
+          {
+            name: 'box',
+            data: {
+              props: {
+              },
+              elements: [offer]
+            }
+          }
+        ]
       }
     },
     {
